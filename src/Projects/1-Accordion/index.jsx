@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Button from "../../Components/Button";
 import Item from "./Item";
 import faqData from "./data";
@@ -8,15 +8,20 @@ function index() {
     const [showAnswer, setShowAnswer] = useState(null);
     const [showMultiAnswer, setShowMultiAnswer] = useState([]);
 
+    useEffect(() => {
+        if (!multipleSelection) setShowMultiAnswer([showAnswer]);
+    }, [showAnswer]);
+
     const handleClick = useCallback(() => {
         setMultipleSelection((preSt) => !preSt);
-        setShowMultiAnswer([showAnswer]);
+        console.log(showAnswer);
     }, []);
 
     const adjustAnswer = (id) => {
         switch (multipleSelection) {
             case false:
                 showAnswer == id ? setShowAnswer(null) : setShowAnswer(id);
+                console.log(showAnswer);
                 break;
 
             case true:
@@ -30,10 +35,12 @@ function index() {
 
                 setShowMultiAnswer(copyArr);
                 setShowAnswer(id);
+                break;
             default:
                 break;
         }
     };
+
     return (
         <div className="grid justify-items-center gap-4 p-4 m-4 bg-gray-200">
             <Button
@@ -42,6 +49,8 @@ function index() {
                         ? "Disable Multiple Selection"
                         : "Enable Multiple Selection"
                 }
+                color={"white"}
+                bgClr={"red"}
                 fn={handleClick}
             />
             <div className=" grid gap-4 min-w-full">

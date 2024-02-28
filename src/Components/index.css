@@ -1,0 +1,27 @@
+.hoverAnimation {
+    animation: hover 0.4s ease-in-out forwards;
+}
+
+@keyframes hover {
+    30%,
+    80% {
+        transform: scale(1.1);
+    }
+    60%,
+    100% {
+        transform: scale(1);
+    }
+}
+
+.clickAnimation {
+    animation: click 0.2s ease-in-out forwards;
+}
+
+@keyframes click {
+    50% {
+        transform: scale(0.94);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
