@@ -1,0 +1,5 @@
+.imageSlider-container {
+    display: grid;
+    grid-template-columns: 0.1fr 0.8fr 0.1fr;
+    grid-template-rows: 0.4fr 0.1fr 0.4fr 0.1fr;
+}
