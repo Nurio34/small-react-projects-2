@@ -7,6 +7,8 @@ import Image from "./2-Image";
 function index() {
     const url = "https://picsum.photos/v2/list?page=1&limit=10";
     const [data, setData] = useState([]);
+    const [isLoading, setisLoading] = useState(true);
+    const [error, seterror] = useState(null);
     const [index, setIndex] = useState(0);
     const slider = useRef();
     const [sliderWidth, setsliderWidth] = useState(null);
@@ -14,29 +16,45 @@ function index() {
 
     useEffect(() => {
         const fecthData = async () => {
-            const res = await fetch(url);
+            try {
+                const res = await fetch(url);
 
-            if (res.ok === false) throw new Error("Something wrong..");
+                if (res.ok !== true) {
+                    seterror("Something wrong with res.ok..");
 
-            const data = await res.json();
-            setData(data);
+                    throw new Error("Something wrong with res.ok..");
+                }
+
+                const data = await res.json();
+                setData(data);
+            } catch (error) {
+                seterror(`Something wrong...${error}`);
+
+                throw new Error(`Throwing...${error}`);
+            } finally {
+                setisLoading(false);
+            }
         };
         fecthData();
     }, []);
 
     useEffect(() => {
-        const sliderWidth = parseInt(
-            window.getComputedStyle(slider.current).width,
-        );
-        setsliderWidth(sliderWidth);
-    }, []);
+        if (slider.current) {
+            const sliderWidth = parseInt(
+                window.getComputedStyle(slider.current).width,
+            );
+            setsliderWidth(sliderWidth);
+        }
+    }, [slider.current]);
 
     const previousIndex = () => {
         if (index > 0) setIndex((ps) => ps - 1);
+        else if (index === 0) setIndex(data.length - 1);
     };
 
     const nextIndex = () => {
         if (index < 9) setIndex((ps) => ps + 1);
+        else if (index === 9) setIndex(0);
     };
 
     const customIndex = (id) => {
@@ -49,9 +67,15 @@ function index() {
 
     useEffect(() => {}, [trans]);
 
+    if (isLoading) {
+        return <div>Loading...</div>;
+    } else if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
         <div
-            className="imageSlider-container justify-items-center overflow-hidden"
+            className="imageSlider-container justify-items-center overflow-hidden w-full aspect-[1.49]"
             ref={slider}
         >
             <div className="col-start-1 col-span-4 row-start-1 row-span-4 select-none flex">
