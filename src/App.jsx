@@ -9,6 +9,7 @@ import LoadMore2 from "./Projects/7-LoadMore";
 import SideMenuTree from "./Projects/8-SideMenuTree";
 import SideMenuTree2 from "./Projects/9-SideMenuTree";
 import QRCodeGenerator from "./Projects/10-QRCodeGenerator";
+import ThemeChange from "./Projects/11-ThemeChange";
 
 function App() {
     return (
@@ -22,7 +23,8 @@ function App() {
             {/* <LoadMore2 /> */}
             {/* <SideMenuTree /> */}
             {/* <SideMenuTree2 /> */}
-            <QRCodeGenerator />
+            {/* <QRCodeGenerator /> */}
+            <ThemeChange />
         </>
     );
 }
