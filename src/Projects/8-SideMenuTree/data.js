@@ -43,4 +43,54 @@ export const sideMenu = [
             },
         ],
     },
+    {
+        label: "settings",
+        to: "/settings",
+        children: [
+            {
+                label: "account",
+                to: "/account",
+            },
+            {
+                label: "security",
+                to: "/security",
+                children: [
+                    {
+                        label: "login",
+                        to: "/login",
+                    },
+                    {
+                        label: "register",
+                        to: "/register",
+                        children: [
+                            {
+                                label: "settings",
+                                to: "/settings",
+                                children: [
+                                    {
+                                        label: "account",
+                                        to: "/account",
+                                    },
+                                    {
+                                        label: "security",
+                                        to: "/security",
+                                        children: [
+                                            {
+                                                label: "login",
+                                                to: "/login",
+                                            },
+                                            {
+                                                label: "register",
+                                                to: "/register",
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
 ];

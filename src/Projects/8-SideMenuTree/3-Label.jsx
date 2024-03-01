@@ -1,29 +1,31 @@
+import { useEffect, useState } from "react";
+import Child from "./5-Child";
+import LabelButon from "./4-LabelButon";
+
 function Label({ data }) {
-    const treeFn = () => {
-        const label = data.children?.map((item, ind) => {
-            return item;
-        });
-
-        const recrusion = (param) => {
-            if (param) {
-                const mapped = param.map((item, ind) => {
-                    if (item.children) {
-                        recrusion(item.children);
-                    }
-                    return item;
-                });
-                console.log(mapped);
-            }
+    const treeFn = (Data) => {
+        const recrusion = (Data) => {
+            return (
+                <div>
+                    <LabelButon Data={Data} />
+                    {Data.children && (
+                        <div className={` pl-4 h-0 w-0 overflow-hidden`}>
+                            {Data.children?.map((child, ind) => (
+                                <Child
+                                    key={child.label}
+                                    child={child}
+                                    recrusion={recrusion}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            );
         };
-
-        recrusion(label);
-
-        // console.log(label);
+        return recrusion(Data);
     };
 
-    treeFn();
-
-    return <div></div>;
+    return <div>{treeFn(data)}</div>;
 }
 
 export default Label;

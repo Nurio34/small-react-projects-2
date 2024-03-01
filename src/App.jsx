@@ -7,6 +7,8 @@ import Image_Slider2 from "./Projects/5-Image_Slider";
 import LoadMore from "./Projects/6-LoadMore";
 import LoadMore2 from "./Projects/7-LoadMore";
 import SideMenuTree from "./Projects/8-SideMenuTree";
+import SideMenuTree2 from "./Projects/9-SideMenuTree";
+import QRCodeGenerator from "./Projects/10-QRCodeGenerator";
 
 function App() {
     return (
@@ -18,7 +20,9 @@ function App() {
             {/* <Image_Slider2 /> */}
             {/* <LoadMore /> */}
             {/* <LoadMore2 /> */}
-            <SideMenuTree />
+            {/* <SideMenuTree /> */}
+            {/* <SideMenuTree2 /> */}
+            <QRCodeGenerator />
         </>
     );
 }
