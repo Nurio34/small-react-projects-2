@@ -4,7 +4,9 @@ import App from "./App.jsx";
 import "./index.css";
 import GlobalContext from "./GlobalContext";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = document.getElementById("root");
+
+ReactDOM.createRoot(root).render(
     <GlobalContext>
         <App />
     </GlobalContext>,

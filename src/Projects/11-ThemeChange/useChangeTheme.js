@@ -19,5 +19,5 @@ export const useChangeTheme = () => {
         }
     }, [theme]);
 
-    return { theme, changeTheme };
+    return { theme: theme.value, changeTheme };
 };

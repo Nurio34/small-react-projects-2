@@ -1,0 +1,12 @@
+:root {
+}
+
+[data-theme="dark"] {
+    --bgClr: black;
+    --text: white;
+}
+
+.divClass {
+    background-color: var(--bgClr);
+    color: var(--text);
+}
