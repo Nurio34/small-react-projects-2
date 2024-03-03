@@ -1,0 +1,31 @@
+.modal_modal_open {
+    animation: modal_open 0.2s ease-in forwards;
+}
+
+@keyframes modal_open {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(100px);
+
+        opacity: 1;
+    }
+}
+
+.modal_modal_close {
+    animation: modal_close 0.4s ease-in forwards;
+}
+
+@keyframes modal_close {
+    from {
+        transform: translateY(100px);
+
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+}

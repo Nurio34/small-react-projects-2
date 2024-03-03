@@ -2,7 +2,7 @@ import "./index.css";
 function Button({ value, color, bgClr, fn, isDisabled }) {
     return (
         <button
-            className={`btn font-medium py-2 px-4 w-full mt-4 max-w-sm justify-self-center hover:bg-green-200 transition-all rounded-lg`}
+            className={`btn font-medium py-2 px-4 w-full max-w-sm justify-self-center hover:bg-green-200 transition-all rounded-lg`}
             style={{ backgroundColor: bgClr, color: color }}
             disabled={isDisabled}
             onClick={(e) => {

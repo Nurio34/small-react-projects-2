@@ -13,11 +13,14 @@ import SideMenuTree2 from "./Projects/9-SideMenuTree";
 import QRCodeGenerator from "./Projects/10-QRCodeGenerator";
 import ThemeChange from "./Projects/11-ThemeChange";
 import ScrollProgressBar from "./Projects/12-ScrollProgressBar";
+import Tabs from "./Projects/13-Tabs";
+import Modal from "./Projects/14-Modal";
+import GithubUserFinder from "./Projects/15-GithubUserFinder";
 
 function App() {
     return (
         <>
-            <Animation />
+            {/* <Animation /> */}
             {/* <Accordion /> */}
             {/* <RandomColor /> */}
             {/* <ReviewStarts /> */}
@@ -30,6 +33,9 @@ function App() {
             {/* <QRCodeGenerator /> */}
             {/* <ThemeChange /> */}
             {/* <ScrollProgressBar /> */}
+            {/* <Tabs /> */}
+            {/* <Modal /> */}
+            <GithubUserFinder />
         </>
     );
 }

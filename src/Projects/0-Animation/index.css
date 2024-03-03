@@ -4,7 +4,7 @@
 }
 
 .fall {
-    transform: translateY(1000%) rotateZ(95deg) rotateX(15deg);
+    transform: translateY(1300%) rotateZ(95deg) rotateX(15deg);
 }
 
 .animation-container {
