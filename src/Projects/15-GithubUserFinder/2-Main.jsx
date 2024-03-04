@@ -4,6 +4,7 @@ import Button from "../../Components/Button";
 
 function Main() {
     const [user, setUser] = useState("");
+    const Input = useRef();
     const [gitUser, setGitUser] = useState(null);
     const [followers, setFollowers] = useState([]);
     const { login, company, avatar_url, bio, followers_url } = gitUser || "";
@@ -11,20 +12,22 @@ function Main() {
     const fetchUser = useCallback(async () => {
         const res = await fetch(`${url}${user}`);
         const data = await res.json();
-        console.log(data);
         setGitUser(data);
     });
 
     const submitForm = useCallback((e) => {
         e.preventDefault();
-        fetchUser();
+        setUser(Input.current.value);
     });
+
+    useEffect(() => {
+        fetchUser();
+    }, [user]);
 
     useEffect(() => {
         const fetchFollowers = async () => {
             const res = await fetch(followers_url);
             const data = await res.json();
-            console.log(data);
             setFollowers(data);
         };
 
@@ -43,9 +46,8 @@ function Main() {
                     type="text"
                     name="User"
                     id="nameInp"
-                    value={user}
                     className="p-1 rounded-md "
-                    onChange={(e) => setUser(e.target.value)}
+                    ref={Input}
                 />
                 <Button
                     value={"Submit"}
@@ -54,16 +56,37 @@ function Main() {
                     fn={submitForm}
                 />
             </form>
-            <section>
-                <div className="flex gap-4">
-                    <h2>{login}</h2>
-                    <p className=" text-sm">{company}</p>
+            <section className="p-4 bg-pink-300 min-h-screen">
+                <div className="flex items-start">
+                    <div>
+                        <div className="flex gap-4">
+                            <h2>{login}</h2>
+                            <p className=" text-sm">{company}</p>
+                        </div>
+                        <img
+                            src={avatar_url}
+                            alt=""
+                            className=" max-w-28 rounded-full"
+                        />
+                    </div>
+
+                    <div className=" flex overflow-hidden">
+                        {followers.map((follower, ind) => {
+                            return (
+                                <img
+                                    key={ind}
+                                    src={follower.avatar_url}
+                                    className={`w-8 aspect-square rounded-full cursor-pointer `}
+                                    style={{
+                                        transform: `translateX(-${ind * 1}rem)`,
+                                    }}
+                                    alt=""
+                                    onClick={() => setUser(follower.login)}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
-                <img
-                    src={avatar_url}
-                    alt=""
-                    className=" max-w-28 rounded-full"
-                />
                 <p>{bio}</p>
                 <div></div>
             </section>
