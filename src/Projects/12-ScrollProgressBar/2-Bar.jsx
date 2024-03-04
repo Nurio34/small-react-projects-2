@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-function Bar({ headerHeight, percentage }) {
+function Bar({ heights, percentage }) {
     const [barWidth, setBarWidth] = useState(0);
     const Bar = useRef();
 
@@ -14,11 +14,11 @@ function Bar({ headerHeight, percentage }) {
     return (
         <div
             className={`bg-black h-1 fixed w-full `}
-            style={{ top: `${headerHeight}px` }}
+            style={{ top: `${heights.header}px` }}
             ref={Bar}
         >
             <div
-                className="bg-white h-full"
+                className="bg-blue-500 h-full"
                 style={{
                     width: `${percentage}%`,
                 }}

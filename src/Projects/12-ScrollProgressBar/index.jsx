@@ -3,13 +3,16 @@ import Header from "./1-Header";
 import Bar from "./2-Bar";
 import Main from "./3-Main";
 
-function index() {
-    const [headerHeight, setHeaderHeight] = useState(null);
-    const [percentage, setPercentage] = useState(0);
-    console.log(percentage);
-    const handleHeader = (height) => {
-        setHeaderHeight(height);
+function index({ adjustHeader, heights }) {
+    const Logo = "ScrollProgressBar";
+    const Url = "";
+    const Header = {
+        logo: Logo,
+        url: Url,
     };
+    adjustHeader(Header);
+
+    const [percentage, setPercentage] = useState(0);
 
     useEffect(() => {
         window.addEventListener("scroll", (e) => {
@@ -29,13 +32,8 @@ function index() {
 
     return (
         <div>
-            <div style={{ height: `${headerHeight}px` }}>
-                <Header handleHeader={handleHeader} />
-                <Bar
-                    width={"width"}
-                    headerHeight={headerHeight}
-                    percentage={percentage}
-                />
+            <div style={{ height: `${heights.header}px` }}>
+                <Bar heights={heights} percentage={percentage} />
             </div>
             <Main />
         </div>

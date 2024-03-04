@@ -3,7 +3,17 @@ import Item from "./Item";
 import faqData from "./data";
 import { useToogle } from "./useToogle";
 
-function index() {
+function index({ adjustHeader, adjustHeaderPosition }) {
+    const Logo = "Accordion";
+    const Url = "#";
+    const Header = {
+        logo: Logo,
+        url: Url,
+    };
+    adjustHeader(Header);
+
+    adjustHeaderPosition("");
+
     const {
         multipleSelection,
         showAnswer,

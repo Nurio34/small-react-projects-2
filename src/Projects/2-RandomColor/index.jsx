@@ -3,7 +3,17 @@ import Buttons from "./1-Buttons";
 import Screen from "./2-Screen";
 import { HexArray, Rgb } from "./data";
 
-function index() {
+function index({ adjustHeader, adjustHeaderPosition }) {
+    const Logo = "Random_Color";
+    const Url = "#";
+    const Header = {
+        logo: Logo,
+        url: Url,
+    };
+    adjustHeader(Header);
+
+    adjustHeaderPosition("");
+
     const [isHex, setisHex] = useState(true);
     const [color, setColor] = useState(null);
 

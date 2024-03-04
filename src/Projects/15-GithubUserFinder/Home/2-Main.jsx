@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { url } from "./API_Url";
-import Button from "../../Components/Button";
+import { url } from "../API_Url";
+import Button from "../../../Components/Button";
 
 function Main() {
+    const [totalRequest, setTotalRequest] = useState(0);
     const [user, setUser] = useState("");
     const Input = useRef();
-    const [gitUser, setGitUser] = useState(null);
+    const [gitUser, setGitUser] = useState(0);
     const [followers, setFollowers] = useState([]);
     const { login, company, avatar_url, bio, followers_url } = gitUser || "";
 
@@ -13,6 +14,7 @@ function Main() {
         const res = await fetch(`${url}${user}`);
         const data = await res.json();
         setGitUser(data);
+        setTotalRequest((pre) => pre + 1);
     });
 
     const submitForm = useCallback((e) => {
@@ -21,7 +23,7 @@ function Main() {
     });
 
     useEffect(() => {
-        fetchUser();
+        if (user) fetchUser();
     }, [user]);
 
     useEffect(() => {
@@ -29,6 +31,7 @@ function Main() {
             const res = await fetch(followers_url);
             const data = await res.json();
             setFollowers(data);
+            setTotalRequest((pre) => pre + 1);
         };
 
         if (gitUser?.login) {
@@ -71,7 +74,7 @@ function Main() {
                     </div>
 
                     <div className=" flex overflow-hidden">
-                        {followers.map((follower, ind) => {
+                        {followers?.map((follower, ind) => {
                             return (
                                 <img
                                     key={ind}

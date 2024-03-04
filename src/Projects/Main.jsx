@@ -1,0 +1,189 @@
+import HomePage from "./HomePage";
+import Animation from "./0-Animation";
+import Accordion from "./1-Accordion";
+import RandomColor from "./2-RandomColor";
+import ReviewStarts from "./3-ReviewStarts";
+import Image_Slider from "./4-Image_Slider";
+import Image_Slider2 from "./5-Image_Slider";
+import LoadMore from "./6-LoadMore";
+import LoadMore2 from "./7-LoadMore";
+import SideMenuTree from "./8-SideMenuTree ( Latest )";
+import SideMenuTree2 from "./9-SideMenuTree";
+import QRCodeGenerator from "./10-QRCodeGenerator";
+import ThemeChange from "./11-ThemeChange";
+import ScrollProgressBar from "./12-ScrollProgressBar";
+import Tabs from "./13-Tabs";
+import Modal from "./14-Modal";
+import GithubUserFinder from "./15-GithubUserFinder";
+import { Route, Routes } from "react-router-dom";
+
+function Main({ heights, adjustHeader, adjustHeaderPosition }) {
+    const fullVh = window.innerHeight;
+    const minMainHeight = fullVh - heights.header - heights.footer;
+    return (
+        <main
+            style={{
+                minHeight: `${minMainHeight - 1}px`,
+            }}
+        >
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <HomePage
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/animation"
+                    element={
+                        <Animation
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/accordion"
+                    element={
+                        <Accordion
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/randomcolor"
+                    element={
+                        <RandomColor
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/reviewstars"
+                    element={
+                        <ReviewStarts
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/imageslider"
+                    element={
+                        <Image_Slider
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/imageslider2"
+                    element={
+                        <Image_Slider2
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/loadmore"
+                    element={
+                        <LoadMore
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/loadmore2"
+                    element={
+                        <LoadMore2
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/sidemenutree"
+                    element={
+                        <SideMenuTree
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/sidemenutree2"
+                    element={
+                        <SideMenuTree2
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/qrcodegenerator"
+                    element={
+                        <QRCodeGenerator
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/themechange"
+                    element={
+                        <ThemeChange
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/scrollprogressbar"
+                    element={
+                        <ScrollProgressBar
+                            adjustHeader={adjustHeader}
+                            heights={heights}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/tabs"
+                    element={
+                        <Tabs
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/modal"
+                    element={
+                        <Modal
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/githubuserfinder"
+                    element={
+                        <GithubUserFinder
+                            adjustHeader={adjustHeader}
+                            adjustHeaderPosition={adjustHeaderPosition}
+                        />
+                    }
+                ></Route>
+            </Routes>
+        </main>
+    );
+}
+
+export default Main;

@@ -3,7 +3,15 @@ import Button from "../../Components/Button";
 import { useChangeTheme } from "./useChangeTheme";
 import "./index.css";
 
-function index() {
+function index({ adjustHeader }) {
+    const Logo = "ThemeChange";
+    const Url = "";
+    const Header = {
+        logo: Logo,
+        url: Url,
+    };
+    adjustHeader(Header);
+
     const { theme, changeTheme } = useChangeTheme();
 
     return (

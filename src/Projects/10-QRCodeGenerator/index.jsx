@@ -3,7 +3,15 @@ import Header from "./1-Header";
 import QRCode from "react-qr-code";
 import Button from "../../Components/Button";
 
-function index() {
+function index({ adjustHeader }) {
+    const Logo = "react-qr-code";
+    const Url = "https://www.npmjs.com/package/react-qr-code";
+    const Header = {
+        logo: Logo,
+        url: Url,
+    };
+    adjustHeader(Header);
+
     const [value, setValue] = useState({});
     const input = useRef();
 
@@ -15,7 +23,6 @@ function index() {
 
     return (
         <div>
-            <Header />
             <main className=" grid place-content-center gap-8 p-8">
                 <form
                     className="grid shadow-lg p-4 rounded-lg"

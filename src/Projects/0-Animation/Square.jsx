@@ -3,7 +3,6 @@ import React from "react";
 function Square({ id, size, isWorking }) {
     const colors = ["red", "yellow", "green", "blue", "pink", "purple"];
     const random = Math.floor(Math.random() * colors.length);
-    console.log(colors[random]);
 
     return (
         <div

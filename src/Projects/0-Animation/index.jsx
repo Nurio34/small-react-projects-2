@@ -1,9 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./index.css";
 import Square from "./Square";
 import Bubu from "../../assets/bubu.webp";
 
-function index() {
+function index({ adjustHeader, adjustHeaderPosition }) {
+    const Logo = "Bubu&Dudu";
+    const Url = "https://www.youtube.com/watch?v=vi9ql9-u9tM";
+    const Header = {
+        logo: Logo,
+        url: Url,
+    };
+    adjustHeader(Header);
+
+    adjustHeaderPosition("");
+
     const Container = useRef();
     const [size, setsize] = useState({
         width: null,
@@ -17,11 +27,9 @@ function index() {
 
     useEffect(() => {
         const handleTouchStart = () => {
-            console.log("start");
             setisWorking(true);
         };
         const handleTouchEnd = () => {
-            console.log("end");
             setisWorking(false);
         };
 
@@ -41,8 +49,6 @@ function index() {
     useEffect(() => {
         const touchMove = (e) => {
             setcount((pre) => pre + 1);
-            console.log(count);
-            console.log(e.touches);
         };
         window.addEventListener("touchmove", touchMove);
         return () => {

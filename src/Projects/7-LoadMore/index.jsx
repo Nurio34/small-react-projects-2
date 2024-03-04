@@ -3,7 +3,15 @@ import Header from "./1-Header";
 import Product from "./2-Product";
 import Button from "../../Components/Button";
 
-function index() {
+function index({ adjustHeader }) {
+    const Logo = "dummy_json_API";
+    const Url = "https://dummyjson.com/";
+    const Header = {
+        logo: Logo,
+        url: Url,
+    };
+    adjustHeader(Header);
+
     const [data, setData] = useState({
         isLoading: true,
     });
@@ -65,7 +73,6 @@ function index() {
 
     return (
         <div className="grid grid-cols-1 ">
-            <Header />
             <div className="p-4">
                 {data.isLoading && <div>Loading...</div>}
                 {data.error && <div>{data.error}</div>}

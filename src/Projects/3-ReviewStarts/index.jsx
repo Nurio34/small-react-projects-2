@@ -2,7 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import Star from "./1-Star";
 import Button from "../../Components/Button";
 
-function index() {
+function index({ adjustHeader, adjustHeaderPosition }) {
+    const Logo = "Review_Stars";
+    const Url = "#";
+    const Header = {
+        logo: Logo,
+        url: Url,
+    };
+    adjustHeader(Header);
+
+    adjustHeaderPosition("");
+
     const totalStars = useRef(10);
 
     const [currentStar, setcurrentStar] = useState([]);

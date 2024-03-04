@@ -7,7 +7,7 @@ function Main() {
     const [data, setData] = useState([]);
     const [current, setCurrent] = useState(1);
     const [modal, setModal] = useState(false);
-    console.log(data);
+
     const fetchData = useCallback(async () => {
         const res = await fetch(url);
         const data = await res.json();
