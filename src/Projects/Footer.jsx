@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Footer({ adjustHeight, adjustHeader }) {
+    const [guides, setGuides] = useState(null);
+    useEffect(() => {
+        if (guides) {
+            window.open(
+                `http://127.0.0.1:5500/src/guides/html/${guides}.html`,
+                "_blank",
+            );
+        }
+    }, [guides]);
+
     return (
         <footer
-            className="p-4 bg-pink-200"
+            className="p-4 bg-pink-200 text-sm md:text-base"
             ref={(ref) => {
                 if (ref) {
                     const height = parseInt(getComputedStyle(ref).height);
@@ -12,8 +23,30 @@ function Footer({ adjustHeight, adjustHeader }) {
             }}
         >
             <div>
-                <h1 className=" font-bold">Projects</h1>
-                <div className=" grid grid-cols-3 text-purple-600 underline justify-items-start ">
+                <h1 className=" font-bold flex justify-between">
+                    Projects
+                    <select
+                        name=""
+                        id=""
+                        onChange={(e) => {
+                            setGuides(e.target.value);
+                        }}
+                    >
+                        <option disabled selected>
+                            Guides
+                        </option>
+                        <option value="semantic">Semantic</option>
+                        <option value="events">Events</option>
+                        <option value="seo">Seo</option>
+                        <option value="git">Git</option>
+                    </select>
+                </h1>
+                <div
+                    className=" grid grid-cols-2 text-purple-600 underline justify-items-start
+                md:grid-cols-3
+                lg:grid-cols-4 
+                xl:grid-cols-5 "
+                >
                     <Link to={"/"} onClick={() => adjustHeader({})}>
                         Home
                     </Link>
@@ -76,6 +109,15 @@ function Footer({ adjustHeight, adjustHeader }) {
                         onClick={() => adjustHeader({})}
                     >
                         GithubUserFinder
+                    </Link>
+                    <Link
+                        to={"/searchautocomplate"}
+                        onClick={() => adjustHeader({})}
+                    >
+                        SearchAutocomplate
+                    </Link>
+                    <Link to={"/tictactoe"} onClick={() => adjustHeader({})}>
+                        TicTacToe
                     </Link>
                 </div>
             </div>

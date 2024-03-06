@@ -1,3 +1,5 @@
+import { Route, Routes, useLocation } from "react-router-dom";
+
 import HomePage from "./HomePage";
 import Animation from "./0-Animation";
 import Accordion from "./1-Accordion";
@@ -15,13 +17,20 @@ import ScrollProgressBar from "./12-ScrollProgressBar";
 import Tabs from "./13-Tabs";
 import Modal from "./14-Modal";
 import GithubUserFinder from "./15-GithubUserFinder";
-import { Route, Routes } from "react-router-dom";
+import SearchAutocomplate from "./16-SearchAutocomplate";
+import TicTacToe from "./17-TicTacToe";
 
 function Main({ heights, adjustHeader, adjustHeaderPosition }) {
     const fullVh = window.innerHeight;
     const minMainHeight = fullVh - heights.header - heights.footer;
+
+    const location = useLocation();
     return (
         <main
+            className={
+                location.pathname === "/tictactoe" &&
+                "grid place-content-center"
+            }
             style={{
                 minHeight: `${minMainHeight - 1}px`,
             }}
@@ -180,6 +189,14 @@ function Main({ heights, adjustHeader, adjustHeaderPosition }) {
                             adjustHeaderPosition={adjustHeaderPosition}
                         />
                     }
+                ></Route>
+                <Route
+                    path="/searchautocomplate"
+                    element={<SearchAutocomplate adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/tictactoe"
+                    element={<TicTacToe adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>
