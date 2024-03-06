@@ -19,8 +19,9 @@ import Modal from "./14-Modal";
 import GithubUserFinder from "./15-GithubUserFinder";
 import SearchAutocomplate from "./16-SearchAutocomplate";
 import TicTacToe from "./17-TicTacToe";
+import CustomHooks from "./18-CustomHooks";
 
-function Main({ heights, adjustHeader, adjustHeaderPosition }) {
+function Main({ heights, adjustHeader }) {
     const fullVh = window.innerHeight;
     const minMainHeight = fullVh - heights.header - heights.footer;
 
@@ -41,117 +42,57 @@ function Main({ heights, adjustHeader, adjustHeaderPosition }) {
                     element={
                         <HomePage
                             adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
+                            heights={heights}
                         />
                     }
                 ></Route>
                 <Route
                     path="/animation"
-                    element={
-                        <Animation
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<Animation adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/accordion"
-                    element={
-                        <Accordion
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<Accordion adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/randomcolor"
-                    element={
-                        <RandomColor
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<RandomColor adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/reviewstars"
-                    element={
-                        <ReviewStarts
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<ReviewStarts adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/imageslider"
-                    element={
-                        <Image_Slider
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<Image_Slider adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/imageslider2"
-                    element={
-                        <Image_Slider2
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<Image_Slider2 adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/loadmore"
-                    element={
-                        <LoadMore
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<LoadMore adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/loadmore2"
-                    element={
-                        <LoadMore2
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<LoadMore2 adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/sidemenutree"
-                    element={
-                        <SideMenuTree
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<SideMenuTree adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/sidemenutree2"
-                    element={
-                        <SideMenuTree2
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<SideMenuTree2 adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/qrcodegenerator"
-                    element={
-                        <QRCodeGenerator
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<QRCodeGenerator adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/themechange"
-                    element={
-                        <ThemeChange
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<ThemeChange adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/scrollprogressbar"
@@ -159,36 +100,20 @@ function Main({ heights, adjustHeader, adjustHeaderPosition }) {
                         <ScrollProgressBar
                             adjustHeader={adjustHeader}
                             heights={heights}
-                            adjustHeaderPosition={adjustHeaderPosition}
                         />
                     }
                 ></Route>
                 <Route
                     path="/tabs"
-                    element={
-                        <Tabs
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<Tabs adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/modal"
-                    element={
-                        <Modal
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<Modal adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/githubuserfinder"
-                    element={
-                        <GithubUserFinder
-                            adjustHeader={adjustHeader}
-                            adjustHeaderPosition={adjustHeaderPosition}
-                        />
-                    }
+                    element={<GithubUserFinder adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
                     path="/searchautocomplate"
@@ -197,6 +122,10 @@ function Main({ heights, adjustHeader, adjustHeaderPosition }) {
                 <Route
                     path="/tictactoe"
                     element={<TicTacToe adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/customhooks"
+                    element={<CustomHooks adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>

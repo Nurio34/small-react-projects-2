@@ -3,13 +3,15 @@ import { url } from "./API_Url";
 import placeImg from "../../assets/placeHolder.png";
 
 function index({ adjustHeader }) {
-    const Logo = "dummy_json_API";
-    const Url = "https://dummyjson.com/";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
+    if (adjustHeader) {
+        const Logo = "dummy_json_API";
+        const Url = "https://dummyjson.com/";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const [users, setUsers] = useState({ loading: true });
     const [seacrhedUsers, setseacrhedUsers] = useState([]);

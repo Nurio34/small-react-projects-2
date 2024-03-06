@@ -4,16 +4,16 @@ import "./index.css";
 import Button from "../../Components/Button";
 import Indicator from "./1-Indicator";
 
-function index({ adjustHeader, adjustHeaderPosition }) {
-    const Logo = "picsum_photos_API";
-    const Url = "https://picsum.photos/";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
-
-    adjustHeaderPosition("");
+function index({ adjustHeader }) {
+    if (adjustHeader) {
+        const Logo = "picsum_photos_API";
+        const Url = "https://picsum.photos/";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const url = "https://picsum.photos/v2/list?page=1&limit=10";
     const [data, setData] = useState([]);

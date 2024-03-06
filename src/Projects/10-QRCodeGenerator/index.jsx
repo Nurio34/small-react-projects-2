@@ -4,13 +4,15 @@ import QRCode from "react-qr-code";
 import Button from "../../Components/Button";
 
 function index({ adjustHeader }) {
-    const Logo = "react-qr-code";
-    const Url = "https://www.npmjs.com/package/react-qr-code";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
+    if (adjustHeader) {
+        const Logo = "react-qr-code";
+        const Url = "https://www.npmjs.com/package/react-qr-code";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const [value, setValue] = useState({});
     const input = useRef();

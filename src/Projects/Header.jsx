@@ -10,7 +10,10 @@ function Header({ adjustHeight, header, headerPosition }) {
             className="flex justify-around items-center border-b-[1px] shadow-xl border-gray-300 py-2  w-full bg-white"
             style={{
                 position: `${
-                    location.pathname === "/scrollprogressbar" ? "fixed" : ""
+                    location.pathname === "/scrollprogressbar" ||
+                    location.pathname === "/"
+                        ? "fixed"
+                        : ""
                 }`,
             }}
             ref={(ref) => {

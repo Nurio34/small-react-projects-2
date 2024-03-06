@@ -35,11 +35,7 @@ function App() {
                     header={header}
                     headerPosition={headerPosition}
                 />
-                <Main
-                    heights={heights}
-                    adjustHeader={adjustHeader}
-                    adjustHeaderPosition={adjustHeaderPosition}
-                />
+                <Main heights={heights} adjustHeader={adjustHeader} />
                 <Footer
                     adjustHeight={adjustHeight}
                     adjustHeader={adjustHeader}

@@ -2,13 +2,15 @@ import Header from "./1-Header";
 import SideMenu from "./2-SideMenu";
 
 function index({ adjustHeader }) {
-    const Logo = "SideMenuTree";
-    const Url = "https://dummyjson.com/";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
+    if (adjustHeader) {
+        const Logo = "SideMenuTree";
+        const Url = "https://dummyjson.com/";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     return (
         <div

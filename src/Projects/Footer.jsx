@@ -119,6 +119,9 @@ function Footer({ adjustHeight, adjustHeader }) {
                     <Link to={"/tictactoe"} onClick={() => adjustHeader({})}>
                         TicTacToe
                     </Link>
+                    <Link to={"/customhooks"} onClick={() => adjustHeader({})}>
+                        CustomHooks
+                    </Link>
                 </div>
             </div>
         </footer>

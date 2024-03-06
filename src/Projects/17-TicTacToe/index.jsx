@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import Square from "./Square";
 
 function index({ adjustHeader }) {
-    const Logo = "react";
-    const Url = "https://react.dev/learn/tutorial-tic-tac-toe";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
+    if (adjustHeader) {
+        const Logo = "react";
+        const Url = "https://react.dev/learn/tutorial-tic-tac-toe";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const [squares, setSquares] = useState([...Array(9)]);
     const [isX, setIsX] = useState(true);

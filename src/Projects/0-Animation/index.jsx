@@ -3,16 +3,16 @@ import "./index.css";
 import Square from "./Square";
 import Bubu from "../../assets/bubu.webp";
 
-function index({ adjustHeader, adjustHeaderPosition }) {
-    const Logo = "Bubu&Dudu";
-    const Url = "https://www.youtube.com/watch?v=vi9ql9-u9tM";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
-
-    adjustHeaderPosition("");
+function index({ adjustHeader }) {
+    if (adjustHeader) {
+        const Logo = "Bubu&Dudu";
+        const Url = "https://www.youtube.com/watch?v=vi9ql9-u9tM";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const Container = useRef();
     const [size, setsize] = useState({

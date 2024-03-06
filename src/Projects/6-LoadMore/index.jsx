@@ -4,13 +4,15 @@ import Button from "../../Components/Button";
 import Header from "../Header";
 
 function index({ adjustHeader }) {
-    const Logo = "dummy_json_API";
-    const Url = "https://dummyjson.com/";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
+    if (adjustHeader) {
+        const Logo = "dummy_json_API";
+        const Url = "https://dummyjson.com/";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const [data, setData] = useState({
         isLoading: true,

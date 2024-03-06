@@ -4,13 +4,15 @@ import Bar from "./2-Bar";
 import Main from "./3-Main";
 
 function index({ adjustHeader, heights }) {
-    const Logo = "ScrollProgressBar";
-    const Url = "";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
+    if (adjustHeader) {
+        const Logo = "ScrollProgressBar";
+        const Url = "";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const [percentage, setPercentage] = useState(0);
 

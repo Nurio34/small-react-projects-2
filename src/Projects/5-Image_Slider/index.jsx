@@ -5,13 +5,15 @@ import Indicator from "./1-Indicator";
 import Image from "./2-Image";
 
 function index({ adjustHeader }) {
-    const Logo = "picsum_photos_API";
-    const Url = "https://picsum.photos/";
-    const Header = {
-        logo: Logo,
-        url: Url,
-    };
-    adjustHeader(Header);
+    if (adjustHeader) {
+        const Logo = "picsum_photos_API";
+        const Url = "https://picsum.photos/";
+        const Header = {
+            logo: Logo,
+            url: Url,
+        };
+        adjustHeader(Header);
+    }
 
     const url = "https://picsum.photos/v2/list?page=1&limit=10";
     const [data, setData] = useState([]);

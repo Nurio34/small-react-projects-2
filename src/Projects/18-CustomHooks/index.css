@@ -1,0 +1,8 @@
+#modal {
+    top: 0;
+    left: 0;
+    animation: fade 1s ease-in-out forwards;
+}
+
+@keyframes fade {
+}
