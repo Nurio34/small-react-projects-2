@@ -32,7 +32,7 @@ function Footer({ adjustHeight, adjustHeader }) {
                             setGuides(e.target.value);
                         }}
                     >
-                        <option disabled selected>
+                        <option disabled defaultValue={"guides"}>
                             Guides
                         </option>
                         <option value="semantic">Semantic</option>
