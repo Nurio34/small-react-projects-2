@@ -34,7 +34,7 @@ function index() {
         }
     }, [search.search]);
     return (
-        <nav className=" flex py-2 justify-between md:p-4">
+        <nav className=" flex py-2 justify-between gap-2 md:p-4 ">
             <button
                 style={{ fontFamily: "cursive" }}
                 className=" font-bold text-lg "
@@ -43,6 +43,7 @@ function index() {
                 FoodRecipe
             </button>
             <form
+                className=" w-1/3 grow"
                 onSubmit={(e) => {
                     e.preventDefault();
                     const data = Object.fromEntries(
@@ -59,7 +60,7 @@ function index() {
                     name="search"
                     id="search"
                     placeholder="Search for recipe.."
-                    className=" border border-black px-4 py-1 rounded-[100vw]"
+                    className=" border border-black px-4 py-1 rounded-[100vw] w-full"
                 />
             </form>
             <div className=" flex gap-2">
