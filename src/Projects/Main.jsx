@@ -21,6 +21,7 @@ import SearchAutocomplate from "./16-SearchAutocomplate";
 import TicTacToe from "./17-TicTacToe";
 import CustomHooks from "./18-CustomHooks";
 import WeatherApp from "./19-WeatherApp";
+import FoodRecipe from "./20-FoodRecipe";
 
 function Main({ heights, adjustHeader }) {
     const fullVh = window.innerHeight;
@@ -131,6 +132,10 @@ function Main({ heights, adjustHeader }) {
                 <Route
                     path="/weatherapp"
                     element={<WeatherApp adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/foodrecipe"
+                    element={<FoodRecipe adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>

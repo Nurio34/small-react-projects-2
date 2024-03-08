@@ -47,6 +47,7 @@ function index({ adjustHeader }) {
     const fetchLorem = async () => {
         const res = await fetch(lorem_url);
         const data = await res.json();
+
         setTexts((pre) => [...pre, ...data]);
     };
 
