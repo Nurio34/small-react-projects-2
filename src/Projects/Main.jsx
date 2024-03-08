@@ -20,6 +20,7 @@ import GithubUserFinder from "./15-GithubUserFinder";
 import SearchAutocomplate from "./16-SearchAutocomplate";
 import TicTacToe from "./17-TicTacToe";
 import CustomHooks from "./18-CustomHooks";
+import WeatherApp from "./19-WeatherApp";
 
 function Main({ heights, adjustHeader }) {
     const fullVh = window.innerHeight;
@@ -126,6 +127,10 @@ function Main({ heights, adjustHeader }) {
                 <Route
                     path="/customhooks"
                     element={<CustomHooks adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/weatherapp"
+                    element={<WeatherApp adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>

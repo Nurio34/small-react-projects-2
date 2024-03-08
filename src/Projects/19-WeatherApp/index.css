@@ -1,0 +1,30 @@
+.skeleton {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.skeleton::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 20%;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.6);
+    animation: move 3s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-500%, -50%) rotate(45deg);
+    }
+    25% {
+        transform: translate(500%, -50%) rotate(45deg);
+    }
+    100% {
+        transform: translate(500%, -50%) rotate(45deg);
+    }
+}

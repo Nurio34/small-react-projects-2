@@ -3,7 +3,6 @@ import { useState } from "react";
 export const useModal = (array) => {
     const [modal, setmodal] = useState(false);
     const [modalProduct, setmodalProduct] = useState({});
-    console.log(modalProduct);
 
     const handleModal = (id) => {
         if (id == modalProduct.id && modal) {

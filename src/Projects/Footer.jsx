@@ -122,6 +122,9 @@ function Footer({ adjustHeight, adjustHeader }) {
                     <Link to={"/customhooks"} onClick={() => adjustHeader({})}>
                         CustomHooks
                     </Link>
+                    <Link to={"/weatherapp"} onClick={() => adjustHeader({})}>
+                        WeatherApp
+                    </Link>
                 </div>
             </div>
         </footer>
