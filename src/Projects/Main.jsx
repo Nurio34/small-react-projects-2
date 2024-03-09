@@ -22,6 +22,7 @@ import TicTacToe from "./17-TicTacToe";
 import CustomHooks from "./18-CustomHooks";
 import WeatherApp from "./19-WeatherApp";
 import FoodRecipe from "./20-FoodRecipe";
+import ShoppingCart from "./21-ShoppingCart";
 
 function Main({ heights, adjustHeader }) {
     const fullVh = window.innerHeight;
@@ -136,6 +137,10 @@ function Main({ heights, adjustHeader }) {
                 <Route
                     path="/foodrecipe"
                     element={<FoodRecipe adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/shoppingcart/*"
+                    element={<ShoppingCart adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>

@@ -42,10 +42,11 @@ function Footer({ adjustHeight, adjustHeader }) {
                     </select>
                 </h1>
                 <div
-                    className=" grid grid-cols-2 text-purple-600 underline justify-items-start
-                md:grid-cols-3
-                lg:grid-cols-4 
-                xl:grid-cols-5 "
+                    className=" grid grid-cols-4 text-[9px] leading-3 text-purple-600 underline justify-items-start 
+                                sm:leading-normal sm:text-base
+                                md:grid-cols-5
+                                lg:grid-cols-6 
+                                xl:grid-cols-7 "
                 >
                     <Link to={"/"} onClick={() => adjustHeader({})}>
                         Home
@@ -127,6 +128,9 @@ function Footer({ adjustHeight, adjustHeader }) {
                     </Link>
                     <Link to={"/foodrecipe"} onClick={() => adjustHeader({})}>
                         FoodRecipe
+                    </Link>
+                    <Link to={"/shoppingcart"} onClick={() => adjustHeader({})}>
+                        ShoppingCart
                     </Link>
                 </div>
             </div>
