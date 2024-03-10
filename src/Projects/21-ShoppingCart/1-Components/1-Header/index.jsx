@@ -34,16 +34,18 @@ function index() {
                             onClick={(e) => settoggle(!toggle)}
                         />
                         {toggle && (
-                            <div className=" absolute right-0 grid shadow-lg p-4 ">
+                            <div className=" absolute bg-white  right-0 grid shadow-xl rounded-xl p-4 ">
                                 <Link
                                     to="/shoppingcart"
                                     className=" text-purple-600 underline"
+                                    onClick={(e) => settoggle(!toggle)}
                                 >
                                     Home
                                 </Link>
                                 <Link
                                     to="/shoppingcart/cart"
                                     className=" text-purple-600 underline"
+                                    onClick={(e) => settoggle(!toggle)}
                                 >
                                     Cart
                                 </Link>

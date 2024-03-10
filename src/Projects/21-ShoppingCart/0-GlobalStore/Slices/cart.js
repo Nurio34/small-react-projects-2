@@ -7,15 +7,29 @@ const cart = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
-            state.push(action.payload);
-            console.log(state);
+            state.push({ ...action.payload, amount: 1 });
         },
-        removeToCart(state, action) {
-            console.log(action);
+        removeFromCart(state, action) {
+            return state.filter((obj) => obj.id !== action.payload.id);
+        },
+        addByOne(state, action) {
+            return state.map((obj) =>
+                obj.id === action.payload.id
+                    ? { ...obj, amount: obj.amount + 1 }
+                    : obj,
+            );
+        },
+        removeByOne(state, action) {
+            return state.map((obj) =>
+                obj.id === action.payload.id
+                    ? { ...obj, amount: obj.amount - 1 }
+                    : obj,
+            );
         },
     },
 });
 
 export default cart.reducer;
 
-export const { addToCart, removeFromCart } = cart.actions;
+export const { addToCart, removeFromCart, addByOne, removeByOne } =
+    cart.actions;

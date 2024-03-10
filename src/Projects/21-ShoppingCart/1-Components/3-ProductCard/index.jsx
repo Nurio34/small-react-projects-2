@@ -1,8 +1,20 @@
-import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../0-GlobalStore/Slices/cart";
+import {
+    IoMdStar,
+    IoMdStarHalf,
+    IoMdStarOutline,
+    IoMdAddCircle,
+    IoMdRemoveCircle,
+} from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    addToCart,
+    removeFromCart,
+    addByOne,
+    removeByOne,
+} from "../../0-GlobalStore/Slices/cart";
 
-function index({ product }) {
+function index({ product, showBtns }) {
+    const cart = useSelector((state) => state.cart);
     const { image, title, rating } = product;
     const rate = rating.rate;
     const first = parseInt(String(rate).split(".")[0]);
@@ -36,14 +48,58 @@ function index({ product }) {
                     })}
                 </p>
             </div>
-            <button
-                onClick={(e) => {
-                    dispatch(addToCart(product));
-                }}
-                className=" justify-self-center bg-green-400 text-white py-1 px-2 rounded-[100vw]"
-            >
-                Add Cart
-            </button>
+            <div className="flex justify-between items-center text-xs sm:gap-3">
+                {showBtns && (
+                    <button
+                        onClick={(e) => {
+                            dispatch(removeByOne(product));
+                        }}
+                        disabled={
+                            !product.amount || product?.amount < 1
+                                ? true
+                                : false
+                        }
+                    >
+                        <IoMdRemoveCircle
+                            className={`text-xl pointer-events-none ${
+                                product.amount < 1
+                                    ? " text-gray-500"
+                                    : " text-red-500"
+                            }`}
+                        />
+                    </button>
+                )}
+                <button
+                    onClick={(e) => {
+                        {
+                            cart.some((obj) => obj.id === product.id)
+                                ? dispatch(removeFromCart(product))
+                                : dispatch(addToCart(product));
+                        }
+                    }}
+                    className={`justify-self-center text-white py-1 px-2 rounded-[100vw] grow  ${
+                        !cart.some((obj) => obj.id === product.id) ||
+                        (product.amount && product.amount < 1)
+                            ? " bg-green-400"
+                            : " bg-red-600"
+                    }`}
+                >
+                    {!cart.some((obj) => obj.id === product.id) ||
+                    (product.amount && product.amount < 1)
+                        ? "Add Cart"
+                        : "Remove Cart"}
+                </button>
+                {showBtns && (
+                    <button
+                        className="text-xl text-blue-600"
+                        onClick={(e) => {
+                            dispatch(addByOne(product));
+                        }}
+                    >
+                        <IoMdAddCircle className={` pointer-events-none `} />
+                    </button>
+                )}
+            </div>
         </li>
     );
 }

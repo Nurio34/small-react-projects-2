@@ -4,6 +4,7 @@ import Home from "./2-Pages/1-Home";
 import Cart from "./2-Pages/2-Cart";
 import { store } from "./0-GlobalStore";
 import { Provider } from "react-redux";
+import { useFetch } from "./2-Pages/1-Home/useFetch";
 function index({ adjustHeader }) {
     const Logo = "fake_store_API";
     const Url = "https://fakestoreapi.com/";
@@ -15,11 +16,15 @@ function index({ adjustHeader }) {
 
     const location = useLocation();
 
+    const products = useFetch();
+
     return (
         <Provider store={store}>
             <div>
                 <Header />
-                {location.pathname === "/shoppingcart" && <Home />}
+                {location.pathname === "/shoppingcart" && (
+                    <Home products={products} />
+                )}
                 <Routes>
                     <Route path="/cart" element={<Cart />} />
                 </Routes>
