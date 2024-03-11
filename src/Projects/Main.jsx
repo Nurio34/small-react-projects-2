@@ -23,6 +23,7 @@ import CustomHooks from "./18-CustomHooks";
 import WeatherApp from "./19-WeatherApp";
 import FoodRecipe from "./20-FoodRecipe";
 import ShoppingCart from "./21-ShoppingCart";
+import ConnectFour from "./22-ConnectFour";
 
 function Main({ heights, adjustHeader }) {
     const fullVh = window.innerHeight;
@@ -141,6 +142,10 @@ function Main({ heights, adjustHeader }) {
                 <Route
                     path="/shoppingcart/*"
                     element={<ShoppingCart adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/connectfour/*"
+                    element={<ConnectFour adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>

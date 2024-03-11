@@ -132,6 +132,9 @@ function Footer({ adjustHeight, adjustHeader }) {
                     <Link to={"/shoppingcart"} onClick={() => adjustHeader({})}>
                         ShoppingCart
                     </Link>
+                    <Link to={"/connectfour"} onClick={() => adjustHeader({})}>
+                        ConnectFour
+                    </Link>
                 </div>
             </div>
         </footer>
