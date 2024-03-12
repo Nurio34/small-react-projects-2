@@ -23,8 +23,19 @@ function index({ children }) {
 
     const [positions, setPositions] = useState([]);
     const [isRedNext, setIsRedNext] = useState(true);
-    console.log(positions);
 
+    //** */ --------------------------------------------------------------
+    //** */ -----------------------------------------------------------------
+
+    const [gridPosition, setGridPosition] = useState();
+    const [pointerStartingPosition, setPointerStartingPosition] = useState({
+        top: 0,
+        left: 0,
+        visibility: "hidden",
+    });
+    const [pointerHoverPosition, setPointerHoverPosition] = useState({});
+    const [pointerClickPosition, setPointerClickPosition] = useState({});
+    const [pointerWidth, setPointerWidth] = useState(0);
     //** */ --------------------------------------------------------------
     //** */ -----------------------------------------------------------------
     return (
@@ -36,6 +47,16 @@ function index({ children }) {
                     setPositions,
                     isRedNext,
                     setIsRedNext,
+                    gridPosition,
+                    setGridPosition,
+                    pointerStartingPosition,
+                    setPointerStartingPosition,
+                    pointerHoverPosition,
+                    setPointerHoverPosition,
+                    pointerClickPosition,
+                    setPointerClickPosition,
+                    pointerWidth,
+                    setPointerWidth,
                 }}
             >
                 {children}

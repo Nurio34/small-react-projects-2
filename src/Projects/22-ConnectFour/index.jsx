@@ -9,9 +9,9 @@ function index({ adjustHeader }) {
         url: Url,
     };
     adjustHeader(Header_Obj);
-    console.log(
-        "Her parçaya column ve row id'leri verdim. Positions Array ve bu id'leri kullanarak, tıkladığımda bg renk değişimlerini ayarlıcam",
-    );
+    // console.log(
+    //     "Her parçaya column ve row id'leri verdim. Positions Array ve bu id'leri kullanarak, tıkladığımda bg renk değişimlerini ayarlıcam",
+    // );
     return (
         <GlobalApp>
             <Game />
