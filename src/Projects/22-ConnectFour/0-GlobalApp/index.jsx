@@ -1,7 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createContext } from "react";
 export const GlobalContext = createContext();
-
+//TODO
+console.log("click events'te kaldım, transitionend'te kaldım");
+//TODO
 function index({ children }) {
     //** */ --------------------------------------------------------------
     //** */ --------------------------------------------------------------
@@ -17,6 +19,9 @@ function index({ children }) {
             return String.fromCharCode(ind + settings.current.code_A);
         },
     );
+    settings.current.rows = [...Array(settings.current.row)].map((_, ind) => {
+        return settings.current.row - (ind + 1);
+    });
 
     //** */ --------------------------------------------------------------
     //** */ -----------------------------------------------------------------
@@ -26,16 +31,19 @@ function index({ children }) {
 
     //** */ --------------------------------------------------------------
     //** */ -----------------------------------------------------------------
-
     const [gridPosition, setGridPosition] = useState();
     const [pointerStartingPosition, setPointerStartingPosition] = useState({
         top: 0,
         left: 0,
         visibility: "hidden",
     });
-    const [pointerHoverPosition, setPointerHoverPosition] = useState({});
-    const [pointerClickPosition, setPointerClickPosition] = useState({});
-    const [pointerWidth, setPointerWidth] = useState(0);
+    const [pointerPosition, setPointerPosition] = useState({});
+    const Pointer = useRef();
+    useEffect(() => {
+        Pointer.current.addEventListener("transitionend", () => {
+            console.log("transitionend");
+        });
+    }, [pointerPosition]);
     //** */ --------------------------------------------------------------
     //** */ -----------------------------------------------------------------
     return (
@@ -51,12 +59,9 @@ function index({ children }) {
                     setGridPosition,
                     pointerStartingPosition,
                     setPointerStartingPosition,
-                    pointerHoverPosition,
-                    setPointerHoverPosition,
-                    pointerClickPosition,
-                    setPointerClickPosition,
-                    pointerWidth,
-                    setPointerWidth,
+                    pointerPosition,
+                    setPointerPosition,
+                    Pointer,
                 }}
             >
                 {children}

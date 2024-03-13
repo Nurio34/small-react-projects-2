@@ -7,12 +7,17 @@ function index() {
     //** ---------------------------------------------------------------- */
 
     const { settings } = useContext(GlobalContext);
-    const { grid, columns, column } = settings;
+    const { grid, columns, column, rows } = settings;
 
     //** ---------------------------------------------------------------- */
     //** ---------------------------------------------------------------- */
 
-    const { setGridPosition, setPointerWidth } = useContext(GlobalContext);
+    const {
+        setGridPosition,
+        pointerStartingPosition,
+        setPointerStartingPosition,
+        setPointerPosition,
+    } = useContext(GlobalContext);
     const Grid = useRef();
 
     useEffect(() => {
@@ -23,9 +28,15 @@ function index() {
             setGridPosition({ top, left });
 
             const width = rect.width / column;
-            setPointerWidth(width);
+            setPointerStartingPosition((pre) => {
+                return { ...pre, width: width };
+            });
         }
     }, []);
+
+    useEffect(() => {
+        setPointerPosition(pointerStartingPosition);
+    }, [pointerStartingPosition]);
 
     return (
         <div
@@ -36,7 +47,14 @@ function index() {
             ref={Grid}
         >
             {[...Array(grid)].map((_, ind) => {
-                return <GridPiece key={ind} columns={columns} ind={ind} />;
+                return (
+                    <GridPiece
+                        key={ind}
+                        columns={columns}
+                        ind={ind}
+                        rows={rows}
+                    />
+                );
             })}
             <PointerPiece />
         </div>
