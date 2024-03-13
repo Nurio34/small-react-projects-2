@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { createContext } from "react";
 export const GlobalContext = createContext();
 //TODO
-console.log("click events'te kaldım, transitionend'te kaldım");
+// console.log("click events'te kaldım, transitionend'te kaldım");
 //TODO
 function index({ children }) {
-    //** */ --------------------------------------------------------------
-    //** */ --------------------------------------------------------------
+    //! --------------------------------------------------------------
+    //! --------------------------------------------------------------
 
     const settings = useRef({
         column: 7,
@@ -23,14 +23,14 @@ function index({ children }) {
         return settings.current.row - (ind + 1);
     });
 
-    //** */ --------------------------------------------------------------
-    //** */ -----------------------------------------------------------------
+    //! --------------------------------------------------------------
+    //! -----------------------------------------------------------------
 
     const [positions, setPositions] = useState([]);
     const [isRedNext, setIsRedNext] = useState(true);
 
-    //** */ --------------------------------------------------------------
-    //** */ -----------------------------------------------------------------
+    //! --------------------------------------------------------------
+    //! -----------------------------------------------------------------
     const [gridPosition, setGridPosition] = useState();
     const [pointerStartingPosition, setPointerStartingPosition] = useState({
         top: 0,
@@ -39,13 +39,51 @@ function index({ children }) {
     });
     const [pointerPosition, setPointerPosition] = useState({});
     const Pointer = useRef();
+    const Piece = useRef();
+    //! --------------------------------------------------------------
+    //! -----------------------------------------------------------------
     useEffect(() => {
-        Pointer.current.addEventListener("transitionend", () => {
-            console.log("transitionend");
-        });
+        const handleTransitionend = () => {
+            const allPieces = document.querySelectorAll("span");
+            allPieces.forEach((piece) => (piece.style.pointerEvents = "all"));
+            setPointerPosition((pre) => ({ ...pre, transition: "0s" }));
+
+            Piece.current.classList.remove("bg-white");
+            Piece.current.classList.add(
+                `${isRedNext ? "bg-[yellow]" : "bg-[red]"}`,
+            );
+        };
+        if (Pointer.current) {
+            Pointer.current.addEventListener(
+                "transitionend",
+                handleTransitionend,
+            );
+        }
+
+        return () => {
+            if (Pointer.current) {
+                Pointer.current.removeEventListener(
+                    "transitionend",
+                    handleTransitionend,
+                );
+            }
+        };
     }, [pointerPosition]);
-    //** */ --------------------------------------------------------------
-    //** */ -----------------------------------------------------------------
+    //! --------------------------------------------------------------
+    //! -----------------------------------------------------------------
+    useEffect(() => {
+        //** CHECK FOR COLUMN WİN CONDITIONS */
+        const cols = settings.current.columns.forEach((col1) => {
+            const cols2 = positions.filter((col2) => {
+                return col2.slice(0, 1) === col1;
+            });
+            cols2.forEach((pos, ind) => {
+                if (ind <= settings.current.column - 4) {
+                    console.log(pos);
+                }
+            });
+        });
+    }, [positions]);
     return (
         <div className="h-screen grid place-content-center ">
             <GlobalContext.Provider
@@ -62,6 +100,7 @@ function index({ children }) {
                     pointerPosition,
                     setPointerPosition,
                     Pointer,
+                    Piece,
                 }}
             >
                 {children}

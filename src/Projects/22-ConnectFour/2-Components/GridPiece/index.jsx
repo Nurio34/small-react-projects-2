@@ -11,6 +11,7 @@ function index({ columns, ind, rows }) {
         setPointerPosition,
         gridPosition,
         pointerPosition,
+        Piece,
     } = useContext(GlobalContext);
 
     return (
@@ -51,12 +52,12 @@ function index({ columns, ind, rows }) {
                 allPieces.forEach(
                     (piece) => (piece.style.pointerEvents = "none"),
                 );
-                console.log(allPieces);
                 setPointerPosition((pre) => ({
                     ...pre,
                     top: topPosition,
                     transition: "0.2s ease-in-out",
                 }));
+                Piece.current = pointerGoesTo;
                 //! -----------------------------------------------------------------
                 //! -----------------------------------------------------------------
                 setPositions([
@@ -68,12 +69,6 @@ function index({ columns, ind, rows }) {
                 setIsRedNext(!isRedNext);
                 //! -----------------------------------------------------------------
                 //! -----------------------------------------------------------------
-                // e.target.classList.remove("bg-white");
-                // e.target.classList.add(
-                //     `${isRedNext ? "bg-red-500" : "bg-yellow-500"}`,
-                // );
-                // pointerGoesTo.style.backgrounColor = "red";
-                console.log(pointerGoesTo);
             }}
             //** --------------------------------------------------------- */
         ></span>
