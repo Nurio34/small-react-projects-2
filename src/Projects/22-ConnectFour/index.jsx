@@ -1,5 +1,7 @@
+import { useContext } from "react";
+import GlobalApp, { GlobalContext } from "./0-GlobalApp/";
+import Home from "./1-Pages/1-Home";
 import Game from "./1-Pages/2-Game";
-import GlobalApp from "./0-GlobalApp/";
 
 function index({ adjustHeader }) {
     const Logo = "Codewars";
@@ -12,11 +14,9 @@ function index({ adjustHeader }) {
     // console.log(
     //     "Her parçaya column ve row id'leri verdim. Positions Array ve bu id'leri kullanarak, tıkladığımda bg renk değişimlerini ayarlıcam",
     // );
-    return (
-        <GlobalApp>
-            <Game />
-        </GlobalApp>
-    );
+    // const { gridPosition } = useContext(GlobalContext);
+
+    return <GlobalApp></GlobalApp>;
 }
 
 export default index;

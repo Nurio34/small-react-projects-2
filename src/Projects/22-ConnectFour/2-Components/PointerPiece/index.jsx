@@ -5,7 +5,7 @@ function index() {
     const { pointerPosition, Pointer } = useContext(GlobalContext);
     return (
         <div
-            className=" absolute aspect-square rounded-full bg-green-400"
+            className=" absolute aspect-square rounded-full bg-green-400 -z-10"
             style={{ ...pointerPosition }}
             ref={Pointer}
         ></div>

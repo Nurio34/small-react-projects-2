@@ -28,7 +28,10 @@ function index({ columns, ind, rows }) {
                     ...pre,
                     visibility: "visible",
                     top: gridPosition.top - pointerPosition.width,
-                    left: gridPosition.left + index * pointerPosition.width,
+                    left:
+                        gridPosition.left +
+                        gridPosition.paddingInline +
+                        index * (pointerPosition.width + gridPosition.gap),
                     backgroundColor: isRedNext ? "red" : "yellow",
                 }));
             }}
