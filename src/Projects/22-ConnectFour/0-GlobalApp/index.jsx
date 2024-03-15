@@ -2,12 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import { createContext } from "react";
 import Home from "../1-Pages/1-Home";
 import Game from "../1-Pages/2-Game";
+import "../index.css";
+
 export const GlobalContext = createContext();
 //TODO
 // console.log("click events'te kaldım, transitionend'te kaldım");
 //TODO
 function index({ children }) {
     const [isGameStart, setIsGameStart] = useState(false);
+    const [gameEnd, setGameEnd] = useState(false);
     //! --------------------------------------------------------------
     //! --------------------------------------------------------------
 
@@ -43,6 +46,23 @@ function index({ children }) {
     const [pointerPosition, setPointerPosition] = useState({});
     const Pointer = useRef();
     const Piece = useRef();
+    //! --------------------------------------------------------------
+    //! -----------------------------------------------------------------
+    //** PREVENT SCROLLING WHEN PRESS ARROW UP-DOWN KEYS */
+    const ArrowEvents = (e) => {
+        if (
+            e.code === "ArrowDown" ||
+            e.code === "ArrowUp" ||
+            e.code === "Space"
+        ) {
+            e.preventDefault();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("keydown", ArrowEvents);
+        return () => window.removeEventListener("keydown", ArrowEvents);
+    }, []);
     //! --------------------------------------------------------------
     //! -----------------------------------------------------------------
     useEffect(() => {
@@ -97,9 +117,7 @@ function index({ children }) {
                         superFourNom.length === 4 &&
                         superFourNom.every((item) => item === pos)
                     ) {
-                        console.log(
-                            `Winner is ${!isRedNext ? "Red" : "Yellow"}`,
-                        );
+                        setGameEnd(true);
                     }
                 }
             });
@@ -134,9 +152,7 @@ function index({ children }) {
                             (item) => item.split("_")[1] === start,
                         )
                     ) {
-                        console.log(
-                            `Winner is ${!isRedNext ? "Red" : "Yellow"}`,
-                        );
+                        setGameEnd(true);
                     }
                 }
             });
@@ -153,9 +169,7 @@ function index({ children }) {
                         item.slice(2) === rows[index + 2][ind + 2].slice(2) &&
                         item.slice(2) === rows[index + 3][ind + 3].slice(2)
                     ) {
-                        console.log(
-                            `Winner is ${!isRedNext ? "Red" : "Yellow"}`,
-                        );
+                        setGameEnd(true);
                     } else if (
                         ind > settings.current.column - 4 &&
                         item !== "pos" &&
@@ -163,6 +177,7 @@ function index({ children }) {
                         item.slice(2) === rows[index + 2][ind - 2].slice(2) &&
                         item.slice(2) === rows[index + 3][ind - 3].slice(2)
                     ) {
+                        setGameEnd(true);
                     } else if (ind >= 3 && ind <= settings.current.column - 4) {
                         if (
                             (item !== "pos" &&
@@ -180,9 +195,7 @@ function index({ children }) {
                                 item.slice(2) ===
                                     rows[index + 3][ind - 3].slice(2))
                         ) {
-                            console.log(
-                                `Winner is ${!isRedNext ? "Red" : "Yellow"}`,
-                            );
+                            setGameEnd(true);
                         }
                         //** hem sağ-yukarı, hem sol-yukarı çapraz incele */
                     }
@@ -209,6 +222,9 @@ function index({ children }) {
                     Piece,
                     isGameStart,
                     setIsGameStart,
+                    gameEnd,
+                    setGameEnd,
+                    rows,
                 }}
             >
                 {!isGameStart && <Home />}

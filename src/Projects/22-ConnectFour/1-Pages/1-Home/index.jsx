@@ -30,7 +30,7 @@ function index() {
                         className=" rounded-md"
                         ref={Column}
                     >
-                        {[...Array(5)].map((_, ind) => {
+                        {[...Array(3)].map((_, ind) => {
                             if (ind === 0) {
                                 return (
                                     <option value="" selected disabled>
