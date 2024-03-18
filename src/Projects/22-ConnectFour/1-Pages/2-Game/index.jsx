@@ -27,6 +27,7 @@ function index() {
         gameEnd,
         setGameEnd,
         setIsGameStart,
+        setRows,
     } = useContext(GlobalContext);
     const Grid = useRef();
 
@@ -253,20 +254,16 @@ function index() {
                             setPointerPosition(pointerStartingPosition);
 
                             setRows(
-                                Array.from(
-                                    { length: settings.current.row },
-                                    () => {
-                                        return [
-                                            ...Array.from(
-                                                {
-                                                    length: settings.current
-                                                        .column,
-                                                },
-                                                () => "pos",
-                                            ),
-                                        ];
-                                    },
-                                ),
+                                Array.from({ length: row }, () => {
+                                    return [
+                                        ...Array.from(
+                                            {
+                                                length: column,
+                                            },
+                                            () => "pos",
+                                        ),
+                                    ];
+                                }),
                             );
                         }}
                     >
@@ -279,6 +276,18 @@ function index() {
                             setIsRedNext(true);
                             setGameEnd(false);
                             setIsGameStart(false);
+                            setRows(
+                                Array.from({ length: row }, () => {
+                                    return [
+                                        ...Array.from(
+                                            {
+                                                length: column,
+                                            },
+                                            () => "pos",
+                                        ),
+                                    ];
+                                }),
+                            );
                         }}
                     >
                         Settings

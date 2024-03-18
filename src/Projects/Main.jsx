@@ -24,10 +24,11 @@ import WeatherApp from "./19-WeatherApp";
 import FoodRecipe from "./20-FoodRecipe";
 import ShoppingCart from "./21-ShoppingCart";
 import ConnectFour from "./22-ConnectFour";
+import NewProject from "./23-New";
 
 function Main({ heights, adjustHeader }) {
     const fullVh = window.innerHeight;
-    const minMainHeight = fullVh - heights.header - heights.footer;
+    const minMainHeight = fullVh - heights.header;
 
     const location = useLocation();
     return (
@@ -37,7 +38,7 @@ function Main({ heights, adjustHeader }) {
                 "grid place-content-center"
             }
             style={{
-                minHeight: `${minMainHeight - 1}px`,
+                height: `${minMainHeight - 1}px`,
             }}
         >
             <Routes>
@@ -146,6 +147,10 @@ function Main({ heights, adjustHeader }) {
                 <Route
                     path="/connectfour/*"
                     element={<ConnectFour adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/newproject"
+                    element={<NewProject adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>

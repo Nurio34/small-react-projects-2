@@ -2,7 +2,7 @@ Live on [https://nurio34.github.io/small-react-projects-2](https://nurio34.githu
 
 Techs used : Vite - React.js - Tailwindcss
 
-Packages used : json-server - react-router-dom - react-icons - react-qr-code react-loader-spinner - @reduxjs/toolkit
+Packages used : json-server - react-router-dom - react-icons - react-qr-code react-loader-spinner - @reduxjs/toolkit - react-apexcharts
 
 APIs used : dummyjson.com - jsonplaceholder.typicode.com - picsum.photos - hipsum.co - www.weatherapi.com - forkify-api.herokuapp.com/v2 - fakestoreapi.com
 

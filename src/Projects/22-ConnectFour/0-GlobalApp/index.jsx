@@ -225,6 +225,7 @@ function index({ children }) {
                     gameEnd,
                     setGameEnd,
                     rows,
+                    setRows,
                 }}
             >
                 {!isGameStart && <Home />}
