@@ -135,8 +135,14 @@ function Footer({ adjustHeight, adjustHeader }) {
                     <Link to={"/connectfour"} onClick={() => adjustHeader({})}>
                         ConnectFour
                     </Link>
-                    <Link to={"/newproject"} onClick={() => adjustHeader({})}>
-                        NewProject
+                    <Link
+                        to={"/expensetracker"}
+                        onClick={() => adjustHeader({})}
+                    >
+                        ExpenseTracker
+                    </Link>
+                    <Link to={"/blogapp"} onClick={() => adjustHeader({})}>
+                        BlogApp
                     </Link>
                 </div>
             </div>

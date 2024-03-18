@@ -1,4 +1,9 @@
+import { useGlobalContext } from "../0-GlobalApp";
+import { useEffect } from "react";
+
 function index() {
+    const { isModalOpen, adjustTimer } = useGlobalContext();
+
     return (
         <div className=" flex justify-between py-2 px-4 items-center">
             <h1
@@ -11,7 +16,10 @@ function index() {
             </h1>
             <button
                 style={{ fontVariant: "all-small-caps" }}
-                className="px-2 bg-green-500 rounded-md"
+                className={`px-2 bg-green-500 rounded-md text-sm transition-all 
+                hover:scale-105 
+                active:scale-100`}
+                onClick={adjustTimer}
             >
                 add new transaction
             </button>

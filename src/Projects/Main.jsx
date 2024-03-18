@@ -24,7 +24,8 @@ import WeatherApp from "./19-WeatherApp";
 import FoodRecipe from "./20-FoodRecipe";
 import ShoppingCart from "./21-ShoppingCart";
 import ConnectFour from "./22-ConnectFour";
-import NewProject from "./23-New";
+import ExpenseTracker from "./23-ExpenseTracker";
+import BlogApp from "./24-BlogApp/client";
 
 function Main({ heights, adjustHeader }) {
     const fullVh = window.innerHeight;
@@ -34,8 +35,9 @@ function Main({ heights, adjustHeader }) {
     return (
         <main
             className={
-                location.pathname === "/tictactoe" &&
-                "grid place-content-center"
+                (location.pathname === "/tictactoe" &&
+                    "grid place-content-center",
+                "overflow-y-auto")
             }
             style={{
                 height: `${minMainHeight - 1}px`,
@@ -149,8 +151,12 @@ function Main({ heights, adjustHeader }) {
                     element={<ConnectFour adjustHeader={adjustHeader} />}
                 ></Route>
                 <Route
-                    path="/newproject"
-                    element={<NewProject adjustHeader={adjustHeader} />}
+                    path="/expensetracker"
+                    element={<ExpenseTracker adjustHeader={adjustHeader} />}
+                ></Route>
+                <Route
+                    path="/blogapp"
+                    element={<BlogApp adjustHeader={adjustHeader} />}
                 ></Route>
             </Routes>
         </main>
